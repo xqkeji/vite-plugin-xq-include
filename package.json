@@ -1,0 +1,48 @@
+{
+	"name": "vite-plugin-xq-include",
+	"version": "1.0.0",
+	"description": "A vite file include plugin and supports template variables.",
+	"files": [
+		"dist"
+	],
+	"main": "./dist/index.mjs",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs"
+		}
+	},
+	"scripts": {
+		"build": "npx unbuild",
+		"prepack": "npm run build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/xqkeji/vite-plugin-xq-include.git"
+	},
+	"keywords": [
+		"vite",
+		"vite-plugin",
+		"rollup",
+		"rollup-plugin",
+		"include",
+		"replace",
+		"split html",
+		"inject html",
+		"html",
+		"html-loader",
+		"loader"
+	],
+	"author": "xqkeji.cn",
+	"license": "SSPL-1.0",
+	"homepage": "http://xqkeji.cn/",
+	"devDependencies": {
+		"@types/node": "^18.11.0",
+		"typescript": "^4.8.4",
+		"unbuild": "^0.9.4",
+		"vite": "^3.1.8"
+	}
+}
