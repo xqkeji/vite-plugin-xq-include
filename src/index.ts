@@ -1,12 +1,12 @@
-import { ResolvedConfig,normalizePath } from 'vite';
+import { ResolvedConfig,Plugin,normalizePath } from 'vite';
 import path from 'path';
 import fs from 'fs';
 
 const tagMatcher = new RegExp('<xq-include(.*?)>(.*?)<\/xq-include>', 'gs');
-const attrMatcher = new RegExp('\s*([a-z0-9_-]+)\s*=\s*(?:\'|\")(.*?)(?:\'|\")\s*', 'gs');
-const replaceAttrMatcher = new RegExp('<?=[$]([a-z0-9_-]+)?>', 'gs');
+const attrMatcher = new RegExp('([a-zA-Z0-9_-]+)\s*=\s*(?:\'|\")(.*?)(?:\'|\")', 'gs');
+const replaceAttrMatcher = new RegExp('<?=[$]([a-zA-Z0-9_-]+)?>', 'gs');
 
-function xqInclude(){
+function xqInclude():Plugin{
 	let config: undefined | ResolvedConfig;
 	async function renderHtml(code: string, codePath: string) {
 		if (!config) {

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>引导页</title>
+    <style>
+      body{color:white;font-size:24px;margin-top:50px;}
+      .card-header{color:black}
+    </style>
+  </head>
+  <body>
+    <script>
+	const tagMatcher = new RegExp('<xq-include(.*?)>(.*?)<\/xq-include>', 'gs');
+	const attrMatcher = new RegExp('([a-zA-Z0-9_-]+)\s*=\s*(?:\'|\")(.*?)(?:\'|\")', 'gs');
+	let str="<xq-include file=\"file1\" seo_title='t1' pageTitle='t2'>cccccccc<\/xq-include>";
+	let matches=str.matchAll(tagMatcher);
+	console.log(matches);
+	for (const match of matches) {
+		console.log(match);
+		let [tagStr,attrsStr,content] = match;
+		console.log(attrsStr);
+		const attrs=attrsStr.matchAll(attrMatcher);
+		for(const attr of attrs)
+		{
+			console.log(attr);
+		}
+	}
+	</script>
+
+  </body>
+</html>
