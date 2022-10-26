@@ -26,8 +26,6 @@
 	"keywords": [
 		"vite",
 		"vite-plugin",
-		"rollup",
-		"rollup-plugin",
 		"include",
 		"replace",
 		"split html",

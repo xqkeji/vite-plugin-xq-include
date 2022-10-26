@@ -51,6 +51,7 @@ export default defineConfig({
 ## 包含文件语法
 ```html
 <xq-include file="partial/header.html" seo_title="产品页" pageTitle="产品页"></xq-include>
+利用html标签属性定义了两个模板变量seo_title和pageTitle
 
 ```
 
