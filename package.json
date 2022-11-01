@@ -2,6 +2,7 @@
 	"name": "vite-plugin-xq-include",
 	"version": "1.0.3",
 	"description": "A vite file include plugin and supports template variables.",
+	"type": "module",
 	"files": [
 		"dist"
 	],
