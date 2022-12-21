@@ -14,6 +14,7 @@ function xqInclude():Plugin{
 		}
 		let root=config.root;
 		const matches = code.matchAll(tagMatcher);
+		// @ts-ignore
 		for (const match of matches) {
 			let [tagStr,attrsStr,content] = match;
 			let map:Record<string,string> ={};
@@ -53,6 +54,7 @@ function xqInclude():Plugin{
 					
 				}
 				data = data.replace(`<?=$${content}?>`, content);
+				// @ts-ignore
 				data = data.replaceAll(
 					replaceAttrMatcher,
 					'',
