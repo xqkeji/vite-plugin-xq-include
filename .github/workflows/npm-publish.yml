@@ -4,9 +4,7 @@
 name: Node.js Package
 
 on:
-  label:
-    types:
-      - created
+  create
 
 jobs:
   publish-npm:
