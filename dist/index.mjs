@@ -1,5 +1,5 @@
 /*!
- * vite-plugin-xq-include v1.0.7 (http://xqkeji.cn/)
+ * vite-plugin-xq-include v1.0.13 (http://xqkeji.cn/)
  * Author xqkeji.cn
  * LICENSE SSPL-1.0
  * Copyright 2022 xqkeji.cn
