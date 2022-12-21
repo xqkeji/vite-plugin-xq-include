@@ -1,6 +1,6 @@
 {
 	"name": "vite-plugin-xq-include",
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"description": "A vite file include plugin and supports template variables.一个vite3的文件包含插件，支持模板变量。",
 	"type": "module",
 	"files": [
