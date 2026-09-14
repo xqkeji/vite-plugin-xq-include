@@ -1,10 +1,9 @@
-# Auto-publish to npm when a version tag (v*) is pushed.
+# Auto-publish to npm via OIDC Trusted Publishing when a version tag (v*) is pushed.
 #
-# 2FA fix: the NPM_TOKEN repository secret MUST be an npm *automation* token,
-# created on the 2FA-enabled npm account with:
-#     npm token create --type=automation
-# Automation tokens bypass the OTP prompt, so `npm publish` runs fully unattended.
-# A regular auth token will still fail with ERR! code EOTP under 2FA.
+# No NPM_TOKEN secret needed: npm authenticates with the GitHub OIDC token
+# (granted by `id-token: write` below). Configure the trusted publisher on
+# npmjs.com -> Packages -> <pkg> -> Settings -> Trusted publishing:
+#   Owner: xqkeji   Repository: vite-plugin-xq-include   Workflow filename: npm-publish.yml
 name: Node.js Package
 
 on:
@@ -14,6 +13,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write   # Required for npm OIDC trusted publishing
 
 jobs:
   publish-npm:
@@ -22,10 +22,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '24'   # Node 24 bundles npm 11.5+ which supports OIDC
           registry-url: https://registry.npmjs.org/
       - run: npm install
       - run: npm run build
       - run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
