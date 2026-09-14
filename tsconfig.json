@@ -1,14 +1,16 @@
 {
 	"compilerOptions": {
 		"outDir": "dist",
-		"target": "ES2021",
-		"moduleResolution": "Node",
+		"target": "ES2022",
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
 		"strict": true,
 		"declaration": true,
 		"sourceMap": true,
 		"noUnusedLocals": true,
-		"esModuleInterop": true
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"types": ["node"]
 	},
-	"include": ["src"],
-	"references": [{ "path": "./tsconfig.node.json" }]
+	"include": ["src"]
 }
