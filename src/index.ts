@@ -79,11 +79,17 @@ function xqInclude():Plugin{
 			config = resolvedConfig;
 		},
 		transformIndexHtml: {
+			// Vite 3~7 用 enforce + transform
 			enforce: 'pre',
 			transform(html:string, ctx:any) {
 				return renderHtml(html, ctx.path);
 			},
-		},
+			// Vite 8 (rolldown-vite) 改为 order + handler，旧 key 不读会崩
+			order: 'pre',
+			handler(html:string, ctx:any) {
+				return renderHtml(html, ctx.path);
+			},
+		} as any,
 	};
 }
 
